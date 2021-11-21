@@ -1,26 +1,36 @@
 {% extends 'base.html' %}
 
 {% block meta %}
-	<meta name="description" content="CARBON06 {{journal.description}}">
+	<meta name="description" content="Kimya mühendisleri odası ankara öğrenci komisyonu tarafından çıkartılan CARBON06 dergisinin bütün sayılarının listelendiği ve sergilendiği sayfadır.">
+	<meta name="google-site-verification" content="Zz7a7KoRqGHOmHDikpqbvfnI5jOJjBf4ngIw40MMOV4" />
+	<meta name="keywords" content="carbon06,CARBON06,carbon 06,CARBON 06,dergi,carbon06 dergi"/>
 {% endblock %}
 
+{% block title %}Anasayfa{% endblock %}
+
 {% block body %}
-	
+
 	<div class="container container-fluid">
-		<h1>Carbon06</h1><br>
+		<p align="center"><b><h1>CARBON<sub>06</sub></h1></b></p><br>
 
 		<div class="row justify-content-center">
 		    <div class="col">
 		      {% for journal in journals %}
-				<div class="card" style="width: 18rem;">
-				  <a href="{% url 'detail' journal.magazine_id %}">
-				  	<img style="margin-top: 10px;" src="{{journal.cover}}" class="card-img-top" alt="carbon06 cover photo">
-				  </a>
-				  <div class="card-body">
-				    <h4 class="card-title"><b>{{journal.title}}</b></h4>
-				    <h5 class="card-title">{{journal.subtitle}}</h5>
-				    <p class="card-text" align="justify">{{journal.description}}</p>
-				    <a href="{{journal.url}}" class="btn btn-outline-info">CARBON06 okumak için</a>
+				<div class="card mb-3" >
+				  <div class="row no-gutters">
+				    <div class="col-md-4">
+				      <!--<a href="{% url 'detail' journal.magazine_id %}">-->
+				          <img src="{{journal.cover}}" class="card-img" alt="carbon06 {{journal.title}}">
+				        <!--</a>-->
+				    </div>
+				    <div class="col-md-8">
+				      <div class="card-body">
+				        <h5 class="card-title">{{journal.title}}</h5>
+				        <p class="card-text text-muted">{{journal.subtitle}}</p>
+				        <p class="card-text">{{journal.description|linebreaks}}</p>
+				        <a style="bottom: 5%;" href="{{journal.url}}"><strong>CARBON06: {{journal.title}}</strong> okumak için</a>
+				      </div>
+				    </div>
 				  </div>
 				</div>
 				<br>
@@ -28,7 +38,7 @@
 
 		    </div>
 		</div>
-		
+
 	</div>
 
 {% endblock %}

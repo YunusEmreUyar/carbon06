@@ -1,20 +1,32 @@
 {% extends 'base.html' %}
 
 {% block meta %}
+    <meta name="description" content="Kimya mühendisleri odası ankara öğrenci komisyonu tarafından çıkartılan CARBON06 dergisinin {{journal.title}} adlı sayısının açıklandığı sayfadır." />
+    <meta name="keywords" content="carbon06,CARBON06,carbon 06,CARBON 06,dergi,carbon06 dergi,carbon06 {{journal.title}}"/>
 {% endblock %}
 
+{% block title %}{{journal.subtitle}}{% endblock %}
 
 {% block body %}
 	<div style="margin-top: 20px;" class="container">
-		
-		<small>
-		<a href="/" class="btn btn-info btn-sm">Önceki sayfaya dön</a>
-		</small><br><br>
-		<h1><b>{{journal.title}}</b></h1>
-		<h2>{{journal.subtitle}}</h2>
-		<p align="center"><img class="img-fluid" src="{{journal.cover}}"></p>
-		<p align="justify">{{journal.description}}</p>
-		<a href="{{journal.url}}">İlgili CARBON06 sayısına ulaşmak için</a>
+
+	<p align="center"><b><h1>CARBON06</h1></b></p><br>
+		<a href="/" class="btn btn-info btn-sm">Anasayfaya dön</a><br><br>
+	<div class="card mb-3" >
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{{journal.cover}}" class="card-img" alt="carbon06 {{journal.title}}">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{journal.title}}</h5>
+        <p class="card-text text-muted">{{journal.subtitle}}</p>
+        <p class="card-text">{{journal.description}}</p>
+        <a href="{{journal.url}}">İlgili CARBON06 sayısına ulaşmak için</a>
+      </div>
+    </div>
+  </div>
+</div>
 	</div>
 
 {% endblock %}
