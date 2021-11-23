@@ -1,5 +1,5 @@
 from django.contrib.sitemaps import Sitemap
-from .models import Journal
+from .models import Journal, Contributor
 from django.urls import reverse
 
 class JournalSitemap(Sitemap):
@@ -22,8 +22,7 @@ class StaticSitemap(Sitemap):
     protocol = 'http'
 
     def items(self):
-        return ['index']
+        return ['index', 'contributors']
 
     def location(self, item):
         return reverse(item)
-

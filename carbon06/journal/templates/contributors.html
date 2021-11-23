@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CARBON06 - Ekibimiz</title>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+	<style type="text/css">
+		body {
+			background-color: #000000;
+			color: white;
+		}
+		.card-image img {
+			object-fit: cover;
+			max-height: 55vh;
+			width: 95%;
+		}
+		.card {
+			width: 100%;
+			padding: 15px;
+			background-color: #212121;
+		}
+		.outer {
+			padding-right: 1px;
+		}
+		@media only screen and (min-width: 993px) {
+			.container {
+				width: 90%;
+			}
+		}
+		a {
+			color: #4db6ac;
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<div class="container">
+		<h2><b>Ekibimiz</b></h2>
+		
+		<div class="row">	
+		{% for cont in object_list %}
+		
+		{% if not cont.role.isWide %}
+			<div class="outer col s12 m3 l3">
+			  <div class="card">
+			    <div class="card-image waves-effect waves-block waves-light">
+			    	<b><p class="teal-text lighten-3">{{cont.role}}</p></b>
+			      	<img class="activator" src="{{cont.photo.url}}" alt="{{cont.name}} {{cont.surname}}">
+			    </div>
+			    <div class="card-content">
+			      <span class="card-title white-text">{{cont.name}} <b>{{cont.surname}}</b></span>
+			      {% if cont.personal_link %}
+			      	<p><a href="{{cont.personal_link}}">Bağlantı</a></p>
+			      {% else %}
+			      <br>
+			      {% endif %}
+			    </div>
+			    {% if cont.bio %}
+			    	<div class="card-reveal" style="background-color: #212121;">
+				      <span class="card-title teal-text lighten-3">{{cont.name}} {{cont.surname}}<i class="right white-text darken-2">&#8631;</i></span>
+				      	<p>{{cont.bio|linebreaks}}</p>
+				  </div>
+			    {% endif %}
+			  </div>
+			 </div>
+
+		{% else %}
+		
+			<div class="outer col s12 m12 l9">
+			  <div class="card">
+			    <div class="card-image waves-effect waves-block waves-light">
+			    	<b><p class="teal-text lighten-3">{{cont.role}}</p></b>
+			      	<img class="activator" src="{{cont.photo.url}}" alt="{{cont.name}} {{cont.surname}}">
+			    </div>
+			    <div class="card-content">
+			      <span class="card-title white-text">{{cont.name}} <b>{{cont.surname}}</b></span>
+			      {% if cont.personal_link %}
+			      	<p><a href="{{cont.personal_link}}">Bağlantı</a></p>
+			      {% else %}
+			      <br>
+			      {% endif %}
+			    </div>
+			    {% if cont.bio %}
+			    	<div class="card-reveal" style="background-color: #212121;">
+				      <span class="card-title teal-text lighten-2">{{cont.name}} {{cont.surname}}<i class="right white-text darken-3">&#8631;</i></span>
+				      	<p>{{cont.bio|linebreaks}}</p>
+				  </div>
+				{% endif %}
+		{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+
+</body>
+</html>

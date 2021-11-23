@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-j^fh3!sruklshn&vbiwj#6=_fju9kkpybr(6yo+p=-qlok2zai'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['carbon06.pythonanywhere.com']
+ALLOWED_HOSTS = ['carbon06.pythonanywhere.com', "127.0.0.1"]
 
 MAX_UPLOAD_SIZE = 214958080
 
