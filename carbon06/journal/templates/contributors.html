@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>CARBON06 - Ekibimiz</title>
-	
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
@@ -22,8 +22,14 @@
 		}
 		.card {
 			width: 100%;
+			min-height: 100%;
 			padding: 15px;
 			background-color: #212121;
+		}
+		.row {
+		    display: flex;
+		    align-items: stretch;
+		    flex-direction: row;
 		}
 		.outer {
 			padding-right: 1px;
@@ -36,6 +42,11 @@
 		a {
 			color: #4db6ac;
 		}
+		@media (max-width:800px) {
+		    .row {
+		        flex-direction: column;
+		    }
+		}
 
 	</style>
 
@@ -44,10 +55,10 @@
 
 	<div class="container">
 		<h2><b>Ekibimiz</b></h2>
-		
-		<div class="row">	
+
+		<div class="row">
 		{% for cont in object_list %}
-		
+
 		{% if not cont.role.isWide %}
 			<div class="outer col s12 m3 l3">
 			  <div class="card">
@@ -73,7 +84,7 @@
 			 </div>
 
 		{% else %}
-		
+
 			<div class="outer col s12 m12 l9">
 			  <div class="card">
 			    <div class="card-image waves-effect waves-block waves-light">
